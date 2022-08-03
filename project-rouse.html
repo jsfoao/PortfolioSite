@@ -80,7 +80,7 @@
                     </ul>
                     <ul class="project-menu">
                         <li>
-                            <a class="menu-button" href="https://github.com/jsfoao/PackUpAndLeaf/archive/refs/heads/main.zip">
+                            <a class="menu-button" href="">
                                 <div style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; min-width: 115px; transform: translateX(3px) translateY(3px);">
                                     <div class="image">
                                         <img src="assets/icons/arrow-down.png" style="height:16px; transform: translateY(3px) translateX(-2px);" alt="">
@@ -92,14 +92,14 @@
                             </a>
                         </li>
                         <li>
-                            <a class="menu-button" href="https://github.com/jsfoao/PackUpAndLeaf" target="_blank">
+                            <a class="menu-button" href="" target="_blank">
                                 <div class="image">
                                     <img src="assets/icons/github_logo.png" style="height: 120%;" alt="">
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a class="menu-button" href="https://futuregames.itch.io/packup-and-leaf" target="_blank">
+                            <a class="menu-button" href="" target="_blank">
                                 <div class="image">
                                     <img src="assets/icons/itch-icon.png" style="height: 120%;" alt="">
                                 </div>
@@ -341,20 +341,68 @@
                 <img src="assets/img/projects/rouse/PushingDragging.gif" alt="" class="img-wrapper">
                 <img src="assets/img/projects/rouse/Pushable_Properties.png" alt="" class="img-wrapper">
             </div>
-            <a class="external-link" href="https://www.youtube.com/watch?v=j2rqnZJ1T_0" target="_blank">
-                <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
-                PushableComponent.cpp
-            </a>
-            <a class="external-link" href="https://www.youtube.com/watch?v=j2rqnZJ1T_0" target="_blank">
-                <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
-                PushComponent.cpp
-            </a>
-            <div class="expandable-button">
+            <div class="expandable-button" style="margin-top: 1rem;">
                 <a style="display: flex; align-items: center; cursor: pointer;" onclick="OnClick(this)">
-                    <div class="expandable-title">Code - Trajectory Solver</div>
+                    <div class="expandable-title">Code - Push Component</div>
                     <img src="assets/icons/front-arrow-icon.png" alt="" class="expandable-arrow">
                 </a>
                 <div class="expandable-content" style="height: 0px;">    
+                    <!-- HTML generated using hilite.me --><div class="code-snippet" style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">UT7PushComponent::TryPush(AActor*</span> <span style="color: #f8f8f2">ActorToPush)</span>
+<span style="color: #f8f8f2">{</span>
+	<span style="color: #75715e">// Not interacting with valid actor</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(ActorToPush</span> <span style="color: #f8f8f2">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">UT7PushableComponent*</span> <span style="color: #f8f8f2">PushableComp</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">ActorToPush-&gt;FindComponentByClass&lt;UT7PushableComponent&gt;();</span>
+	<span style="color: #75715e">// Actor isn&#39;t pushable</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(PushableComp</span> <span style="color: #f8f8f2">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	
+	<span style="color: #f8f8f2">Pushable</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">PushableComp;</span>
+	<span style="color: #75715e">// Check if pushable is grounded</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(!Pushable-&gt;bIsGrounded)</span>
+	<span style="color: #f8f8f2">{</span>
+		<span style="color: #f8f8f2">LOG(</span><span style="color: #e6db74">&quot;Can&#39;t push, object isn&#39;t grounded...&quot;</span><span style="color: #f8f8f2">);</span>
+		<span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">}</span>
+	<span style="color: #75715e">// Evaluate which side is being pushed</span>
+	<span style="color: #f8f8f2">bIsOverlapping</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">Pushable-&gt;EvaluateOverlap(GetOwner());</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(!bIsOverlapping)</span>
+	<span style="color: #f8f8f2">{</span>
+		<span style="color: #f8f8f2">LOG(</span><span style="color: #e6db74">&quot;Can&#39;t push, not overlapping pushable...&quot;</span><span style="color: #f8f8f2">)</span>
+		<span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">}</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(!Pushable-&gt;bCanPush)</span>
+	<span style="color: #f8f8f2">{</span>
+		<span style="color: #f8f8f2">LOG(</span><span style="color: #e6db74">&quot;Can&#39;t push, object isn&#39;t pushable...&quot;</span><span style="color: #f8f8f2">)</span>
+		<span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #75715e">// Can push...</span>
+	<span style="color: #f8f8f2">bIsPushing</span> <span style="color: #f8f8f2">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
+
+	<span style="color: #f8f8f2">LOG(</span><span style="color: #e6db74">&quot;Start push!&quot;</span><span style="color: #f8f8f2">);</span>
+	<span style="color: #75715e">// Move pushable away from actor</span>
+	<span style="color: #f8f8f2">bLerpToLocation</span> <span style="color: #f8f8f2">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">Cast&lt;AT7Character&gt;(GetOwner())-&gt;bLockMovement</span> <span style="color: #f8f8f2">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
+
+	<span style="color: #75715e">// Target location and rotation</span>
+	<span style="color: #f8f8f2">TargetLocation</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">GetOwner()-&gt;GetActorLocation()</span> <span style="color: #f8f8f2">+</span> <span style="color: #f8f8f2">Pushable-&gt;BoxSide</span> <span style="color: #f8f8f2">*</span> <span style="color: #f8f8f2">PushOffset;</span>
+	<span style="color: #f8f8f2">TargetRotation</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">UKismetMathLibrary::MakeRotFromX(-Pushable-&gt;BoxSide);</span>
+	
+	<span style="color: #75715e">// Calculate direction to pushable</span>
+	<span style="color: #f8f8f2">PushableLocationOnStart</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">Pushable-&gt;GetOwner()-&gt;GetActorLocation();</span>
+	
+	<span style="color: #75715e">// Disable physics</span>
+	<span style="color: #f8f8f2">Pushable-&gt;PrimitiveComponent-&gt;SetSimulatePhysics(</span><span style="color: #66d9ef">false</span><span style="color: #f8f8f2">);</span>
+
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(Pushable-&gt;DragMultiplier</span> <span style="color: #f8f8f2">!=</span> <span style="color: #ae81ff">0.f</span><span style="color: #f8f8f2">)</span>
+	<span style="color: #f8f8f2">{</span>
+		<span style="color: #75715e">// Raise from ground</span>
+		<span style="color: #f8f8f2">Pushable-&gt;GetOwner()-&gt;AddActorWorldOffset(FVector::UpVector</span> <span style="color: #f8f8f2">*</span> <span style="color: #f8f8f2">LiftDistance);</span>
+	<span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #f8f8f2">OnStartPush.Broadcast(Pushable);</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+
                 </div>
             </div>
             <div class="category-title-small">
@@ -400,6 +448,45 @@
             <div class="flex-column">
                 <img src="assets/img/projects/rouse/interactables_diagram.png" alt="" class="img-wrapper">
                 <img src="assets/img/projects/rouse/PuzzleInteractions.gif" alt="" class="img-wrapper">
+            </div>
+            <div class="expandable-button">
+                <a style="display: flex; align-items: center; cursor: pointer;" onclick="OnClick(this)">
+                    <div class="expandable-title">Code - Interactable Processor</div>
+                    <img src="assets/icons/front-arrow-icon.png" alt="" class="expandable-arrow">
+                </a>
+                <div class="expandable-content" style="height: 0px;">    
+                    <!-- HTML generated using hilite.me --><div class="code-snippet" style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">UT7InteractableProcessor::TriggerActivate()</span>
+<span style="color: #f8f8f2">{</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(OutputResponses.Num()</span> <span style="color: #f8f8f2">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	
+	<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">auto</span> <span style="color: #f8f8f2">Output</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">OutputResponses)</span>
+	<span style="color: #f8f8f2">{</span>
+		<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(Output</span> <span style="color: #f8f8f2">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
+		
+		<span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">UT7InteractableResponse*</span> <span style="color: #f8f8f2">InteractableResp</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">Output-&gt;FindComponentByClass&lt;UT7InteractableResponse&gt;();</span>
+		<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(InteractableResp</span> <span style="color: #f8f8f2">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
+
+		<span style="color: #f8f8f2">InteractableResp-&gt;OnActivate.Broadcast();</span>
+	<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">UT7InteractableProcessor::TriggerDeactivate()</span>
+<span style="color: #f8f8f2">{</span>
+	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(OutputResponses.Num()</span> <span style="color: #f8f8f2">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+	
+	<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">auto</span> <span style="color: #f8f8f2">Output</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">OutputResponses)</span>
+	<span style="color: #f8f8f2">{</span>
+		<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(Output</span> <span style="color: #f8f8f2">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
+		
+		<span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">UT7InteractableResponse*</span> <span style="color: #f8f8f2">InteractableResp</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">Output-&gt;FindComponentByClass&lt;UT7InteractableResponse&gt;();</span>
+		<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(InteractableResp</span> <span style="color: #f8f8f2">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
+
+		<span style="color: #f8f8f2">InteractableResp-&gt;OnDeactivate.Broadcast();</span>
+	<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+
+                </div>
             </div>
         </div>
         <div class="rights-reserved">

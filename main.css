@@ -58,7 +58,7 @@ ul{
     margin: 0;
     z-index: 0;
     height: 100%;
-    width: 2200px;
+    width: 10000px;
 }
 .bg-overlay{
     position: fixed;
@@ -679,7 +679,7 @@ ul{
 }
 
 .expandable-button{
-    margin-top: 0.rem;
+    margin-top: 1rem;
     width: 100%;
 }
 
