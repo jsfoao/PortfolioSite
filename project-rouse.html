@@ -80,7 +80,7 @@
                     </ul>
                     <ul class="project-menu">
                         <li>
-                            <a class="menu-button" href="">
+                            <a class="menu-button" href="https://futuregames.itch.io/rouse" target="_blank">
                                 <div style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; min-width: 115px; transform: translateX(3px) translateY(3px);">
                                     <div class="image">
                                         <img src="assets/icons/arrow-down.png" style="height:16px; transform: translateY(3px) translateX(-2px);" alt="">
@@ -92,14 +92,14 @@
                             </a>
                         </li>
                         <li>
-                            <a class="menu-button" href="" target="_blank">
+                            <a class="menu-button" href="https://github.com/jsfoao/Rouse-Personal" target="_blank">
                                 <div class="image">
                                     <img src="assets/icons/github_logo.png" style="height: 120%;" alt="">
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a class="menu-button" href="" target="_blank">
+                            <a class="menu-button" href="https://futuregames.itch.io/rouse" target="_blank">
                                 <div class="image">
                                     <img src="assets/icons/itch-icon.png" style="height: 120%;" alt="">
                                 </div>
@@ -111,7 +111,7 @@
         </div>
         <div class="project-category-wrapper">
             <div class="flex-column" style="gap: 2rem; margin-top: rem; margin-bottom: 2rem;">
-                <img src="assets/img/projects/rouse/gameplay.gif" alt="" style="width: 65%;">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/_WCyCWfKtFo" style="margin-right: 2rem;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div style="max-width: 250px;">
                     <div class="category-title-big">
                         Info
@@ -134,7 +134,7 @@
                     <p class="content-paragraph">
                         <span class="content-paragraph" style="font-family: Poppins SemiBold;">
                             Team Size:</span> 
-                            14
+                            12
                     </p>
                     <p class="content-paragraph">
                         <span class="content-paragraph" style="font-family: Poppins SemiBold;">
@@ -143,8 +143,8 @@
                     </p>
                     <p class="content-paragraph">
                         <span class="content-paragraph" style="font-family: Poppins SemiBold;">
-                            Build Date:</span> 
-                            20/20/2020
+                            Time:</span> 
+                            7 weeks
                     </p>
                 </div>
             </div>
@@ -153,7 +153,8 @@
                     About
                 </div>
                 <p class="content-paragraph">
-                    WIP
+                    Rouse is a 3rd-person physics-based puzzle platformer. You play as Rose who finds herself trapped inside the dream of her little brother. 
+                    The game's main mechanic is a gun that the player can use to shoot and physically affect elements in the map (freezing, inverting gravity or levitating and sticking).   
                 </p>
                 <div class="category-title-small">
                     Highlights
@@ -167,7 +168,10 @@
                             Object grabbing and dragging.
                         </li>
                         <li class="bullet-li">
-                            Puzzle interactions
+                            System for puzzles.
+                        </li>
+                        <li class="bullet-li">
+                            Procedural animations using IK.
                         </li>
                     </ul>
                 </div>
@@ -178,7 +182,7 @@
                 Aiming and Shooting
             </div>
             <p class="content-paragraph">
-                WIP    
+
             </p>
             <div class="category-title-small">
                 Trajectory
@@ -493,9 +497,19 @@
             <div class="category-title-big">
                 Main Takeaways
             </div>
-            <p>
-                WIP
-            </p>
+        <ul class="bullet-point">
+            <li class="bullet-li">
+                Importance of QA: We didn't have a QA team working full-time on this project so we had to adapt by dedicating about an hour of playtesting every
+                couple of days by the development team. This obviously took precious time away from developing that, in my opinion, ended up being spending in testing.
+            </li>
+            <li class="bullet-li">
+                Blueprint vs C++: Due to time constraints, some of the code that was prototyped in Blueprint ended up never making it to C++. 
+                This ended up causing for some bloated classes where designers struggled to navigate and prototype their mechanics. Making this switch to C++
+                later in the project would've turned out to be too time consuming but I feel like if we had taken the time to gradually make this change throughout
+                production, we could've saved same unnecessary headaches in the long run and provide cleaner and more understandable blueprints for the rest of the development team
+                to work with.
+            </li>
+        </ul>
         </div>
         <div class="rights-reserved">
             © 2022 João Freire. All rights reserved. 

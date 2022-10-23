@@ -134,7 +134,7 @@
                     <p class="content-paragraph">
                         <span class="content-paragraph" style="font-family: Poppins SemiBold;">
                             Team Size:</span> 
-                            13
+                            11
                     </p>
                     <p class="content-paragraph">
                         <span class="content-paragraph" style="font-family: Poppins SemiBold;">
@@ -143,8 +143,8 @@
                     </p>
                     <p class="content-paragraph">
                         <span class="content-paragraph" style="font-family: Poppins SemiBold;">
-                            Build Date:</span> 
-                            20/20/2020
+                            Time:</span> 
+                            4 weeks
                     </p>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                     That's the challenge we took which required extensive testing and tweaking.
                 </p>
                 <div class="category-title-small">
-                    What I worked on
+                    Highlights
                 </div>
                 <div class="flex-column">
                     <ul class="bullet-point">
@@ -171,13 +171,7 @@
                             Camera management system to easily possess and control other cameras during runtime. Used mostly for switching cameras to play cutscenes.
                         </li>
                         <li class="bullet-li">
-                            Interactable objects that will trigger different events when interacted with.
-                        </li>
-                        <li class="bullet-li">
-                            Enemies that will shoot when target is visible and in range.    
-                        </li>
-                        <li class="bullet-li">
-                            Simple shaders and VFX.    
+                            Modular interactable object system
                         </li>
                     </ul>
                 </div>
@@ -187,6 +181,18 @@
             <div class="category-title-big">
                 Third Person Camera
             </div>
+            <a class="external-link" href="https://github.com/jsfoao/PackUpAndLeaf/blob/main/Assets/_Game/Scripts/Components/Camera/OrbitCamera.cs" target="_blank" style="margin-bottom: 0.5rem;">
+                <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                OrbitCamera.cs
+            </a>
+            <a class="external-link" href="https://github.com/jsfoao/PackUpAndLeaf/blob/main/Assets/_Game/Scripts/Components/Camera/CameraController.cs" target="_blank" style="margin-bottom: 0.5rem;">
+                <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                CameraController.cs
+            </a>
+            <a class="external-link" href="https://github.com/jsfoao/PackUpAndLeaf/blob/main/Assets/_Game/Scripts/Components/Camera/CameraCollision.cs" target="_blank" style="margin-bottom: 1rem;">
+                <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                CameraCollision.cs
+            </a>
             <p class="content-paragraph">
                 Since platformers depend so much on how the movement and camera feels, I took the latter as my main focus for this
                 project. I had to work very closely with the programmer that was working on the player’s movement to make sure that both
@@ -413,6 +419,10 @@
                     </div>
                 </div> 
             </div>     
+            <a class="external-link" href="https://github.com/jsfoao/PackUpAndLeaf/blob/main/Assets/_Game/Scripts/Components/Camera/CameraCollision.cs" target="_blank" style="margin-top: 1rem; margin-bottom: -0.5rem;">
+                <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                CameraCollision.cs
+            </a>
             <div class="expandable-button">
                 <a style="display: flex; align-items: center; cursor: pointer;" onclick="OnClick(this)">
                     <div class="expandable-title">Code - Collision with clip points</div>
@@ -505,9 +515,17 @@
                 </li>
                 <li class="bullet-li">
                     Outline Shader
+                    <a class="external-link" href="https://github.com/jsfoao/PackUpAndLeaf/blob/main/Assets/_Game/Art/Shaders/UniformOutline.shader" target="_blank">
+                        <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                        UniformOutline.shader
+                    </a>
                 </li>
                 <li class="bullet-li">
                     Double side alpha clip shader
+                    <a class="external-link" href="https://github.com/jsfoao/PackUpAndLeaf/blob/main/Assets/_Game/Art/Shaders/DoubleSided.shader" target="_blank">
+                        <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                        DoubleSided.shader
+                    </a>
                 </li>
             </ul>
             <div class="flex-column">
@@ -520,9 +538,27 @@
             <div class="category-title-big">
                 Main Takeaways
             </div>
-            <p>
-                WIP
-            </p>
+            <ul class="bullet-point">
+            <li class="bullet-li">
+                Scriptable Objects: This was the first big project where I tried to use scriptable objects for events and other runtime functionality as described
+                in the link below. Since this approach heavily depends on scene references, because of serialization issues when pushing changes, many times these
+                references were lost and had to be set up again. This caused valuable time to be lost doing double and sometimes triple work. The modularity also
+                makes it easy for changes to be made, sometimes even accidentally. Keeping some functionality strictly in code would've avoided some of these issues.
+                <a class="external-link" href="https://www.youtube.com/watch?v=raQ3iHhE_Kk&t=2100s" target="_blank" style="margin-top: 0.3rem;">
+                    <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                    Game Architecture with Scriptable Objects
+                </a>
+            </li>
+            <li class="bullet-li">
+                Folder and naming conventions: Unfortunately, not enough time was reserved to plan folder structure and naming conventions in the beginning of this project
+                so as one can expect, the folder organization and naming got messy.
+            </li>
+            <li class="bullet-li">
+                Pair programming: Since the player movement is the main mechanic in this game, we divided player controller and camera in two. It was crucial
+                to work closely with the programmer who was working on the movement since many references are shared between these systems and 
+                they both have to work well together. We did it by pair programming extensively and that proved very beneficial for this project. 
+            </li>
+            </ul>
         </div>
         <div class="rights-reserved">
             © 2022 João Freire. All rights reserved. 
