@@ -302,39 +302,44 @@
             <div class="category-title-small">
                 Structure
             </div>
-            <p class="content-paragraph">
-                <ul class="bullet-point">
-                    <li class="bullet-li">
-                        App: Entry point from engine's main. Creates world, sets game mode and loads assets.
-                    </li>
-                    <li class="bullet-li">
-                        World: Unique and global object on top of the ECS.
-                    </li>
-                    <li>
-                        GameMode: Second in line after World. Multiple GameModes can be created but only one can be set at a time for the world. Initializes initial entities in world and can execute more level specific game logic.
-                        Different GameModes should be created for each level. The following is an example of a GameModes' structure.
-                        <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/GSpaceShooter.h" target="_blank" style="margin-bottom: 0;">
-                            <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
-                            GSpaceShooter.h
-                        </a>
-                        <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/GSpaceShooter.cpp" target="_blank" style="margin-bottom: 0;">
-                            <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
-                            GSpaceShooter.cpp
-                        </a>
-                    </li>
-                    <li>
-                        Player: The player is an entity with its behaviour divided in each component. The following is an example of a player.
-                        <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/EShip.h" target="_blank" style="margin-bottom: 0;">
-                            <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
-                            EPlayer.h
-                        </a>
-                        <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/EShip.cpp" target="_blank" style="margin-bottom: 0;">
-                            <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
-                            EPlayer.cpp
-                        </a>
-                    </li>
-                </ul>
-            </p>
+            <div class="flex-column">
+                <div>
+                    <p class="content-paragraph">
+                        <ul class="bullet-point">
+                            <li class="bullet-li">
+                                App: Entry point from engine's main. Creates world, sets game mode and loads assets.
+                            </li>
+                            <li class="bullet-li">
+                                World: Unique and global object on top of the ECS.
+                            </li>
+                            <li>
+                                GameMode: Second in line after World. Multiple GameModes can be created but only one can be set at a time for the world. Initializes initial entities in world and can execute more level specific game logic.
+                                Different GameModes should be created for each level. The following is an example of a GameModes' structure.
+                                <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/GSpaceShooter.h" target="_blank" style="margin-bottom: 0;">
+                                    <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                                    GSpaceShooter.h
+                                </a>
+                                <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/GSpaceShooter.cpp" target="_blank" style="margin-bottom: 0;">
+                                    <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                                    GSpaceShooter.cpp
+                                </a>
+                            </li>
+                            <li>
+                                Player: The player is an entity with its behaviour divided in each component. The following is an example of a player.
+                                <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/EShip.h" target="_blank" style="margin-bottom: 0;">
+                                    <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                                    EPlayer.h
+                                </a>
+                                <a class="external-link" href="https://github.com/jsfoao/nata-engine/blob/main/nata/scripts/EShip.cpp" target="_blank" style="margin-bottom: 0;">
+                                    <img src="assets/icons/external_link.png" alt="" class="arrow-icon-back">
+                                    EPlayer.cpp
+                                </a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <img src="assets/img/projects/nata-engine/order_of_execution.png" alt="" class="img-wrapper">
             <div class="category-title-small">
                 Naming Conventions
             </div>
